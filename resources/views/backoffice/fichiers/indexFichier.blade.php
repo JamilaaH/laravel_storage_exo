@@ -7,8 +7,9 @@
         <a href={{route('fichiers.create')}}>Ajouter un fichier</a>
         <div class="row">
             @foreach ($images as $image)
-            <div class="col-4">
-                <img src={{asset('storage/img/' . $image->src)}} alt="">
+            <div class="col-6 border border-light">
+                <img src={{asset('storage/img/' . $image->src)}} alt="image">
+                <p>{{$image->src}}</p>
             </div>
             @endforeach
 

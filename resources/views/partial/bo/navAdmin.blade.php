@@ -8,11 +8,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Fichiers</a>
+                <a class="nav-link" href={{route('fichiers.index')}}>Fichiers</a>
             </li>
         </ul>
         <div class="nav-item ml-auto">
-            <a class="btn btn-light" href="#">back to site</a>
+            <a class="btn btn-light" href={{route('home')}}>back to site</a>
         </div>
     </div>
 </nav>
