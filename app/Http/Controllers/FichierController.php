@@ -28,4 +28,14 @@ class FichierController extends Controller
         $image->save();
         return redirect()->route('fichiers.index');
     }
+
+    public function destroy(Image $id)  
+    {
+        $image = $id;
+
+        Storage::delete('public/img/'. $image->src);
+
+        $image->delete();
+        return redirect()->back();
+    }
 }
