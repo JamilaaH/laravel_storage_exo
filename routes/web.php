@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FichierController;
+use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $images = Image::all();
+    return view('home', compact('images'));
 });
 
 Route::get('/admin', function () {
     return view ('backoffice.admin');
 })->name('admin.index');
+
+//fichier
+Route::get('/admin/fichier', [FichierController::class, "index"])
+->name('fichiers.index');
+
+//create 
+Route::get('/admin/fichier/create', [FichierController::class, "create"])
+->name('fichiers.create');
+
+//store 
+Route::post('/admin/fichier/store', [FichierController::class, "store"])
+->name('fichiers.store');
