@@ -60,4 +60,26 @@ class FichierController extends Controller
         $image->delete();
         return redirect()->back();
     }
+
+    public function edit(Image $id)
+    {
+        $image = $id;
+        return view ('backoffice.fichiers.editFichier', compact('image'));
+    }
+
+    public function update(Image $id, Request $request)
+    {
+        $image =$id;
+        if ($request->img != null) {
+            // dd($request->img);
+            Storage::delete('public/img/'. $image->src);
+            Storage::put('public/img/', $request->file('img'));
+
+            //db
+            $image->src = $request->img->hashName();
+            $image->save();
+        }
+
+        return redirect()->route('fichiers.index');
+    }
 }

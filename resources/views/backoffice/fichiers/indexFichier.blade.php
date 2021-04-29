@@ -10,6 +10,7 @@
             <div class="col-6 text-center border border-light">
                 <img src={{asset('storage/img/' . $image->src)}} alt="image" width = "25%">
                 <p>{{$image->src}}</p>
+                <a href={{route('fichiers.edit', $image->id)}} class="btn btn-success mb-2">Edit</a>
                 <form action={{route('fichiers.destroy', $image->id)}} method="post">
                     @csrf
                     @method('DELETE')
