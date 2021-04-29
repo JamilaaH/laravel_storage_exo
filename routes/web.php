@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $images = Image::all();
     return view('home', compact('images'));
-});
+})->name('home');
 
 Route::get('/admin', function () {
     return view ('backoffice.admin');

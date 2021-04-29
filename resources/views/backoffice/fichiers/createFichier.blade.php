@@ -10,6 +10,11 @@
                 <label for="img">votre image</label>
                 <input type="file" class="form-control-file" name="img">
             </div>
+
+            <div class="form-group">
+                <label for="link">lien url</label>
+                <input type="text" class="form-control" name="link">
+            </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
         <hr class="my-4">

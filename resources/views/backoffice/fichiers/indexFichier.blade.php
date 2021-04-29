@@ -7,9 +7,15 @@
         <a href={{route('fichiers.create')}}>Ajouter un fichier</a>
         <div class="row">
             @foreach ($images as $image)
-            <div class="col-6 border border-light">
-                <img src={{asset('storage/img/' . $image->src)}} alt="image">
+            <div class="col-6 text-center border border-light">
+                <img src={{asset('storage/img/' . $image->src)}} alt="image" width = "25%">
                 <p>{{$image->src}}</p>
+                <form action={{route('fichiers.destroy', $image->id)}} method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">delete</button>
+                </form>
+
             </div>
             @endforeach
 
